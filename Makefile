@@ -4,11 +4,20 @@ all: build
 dist:
 	mkdir dist
 
-dist/y2j: dist $(wildcard y2j/main.go)
-	go build -o $@ ./y2j 
+PLATFORMS := linux/amd64 darwin/amd64
 
-dist/j2y: dist $(wildcard y2j/main.go)
-	go build -o $@ ./j2y 
+temp = $(subst /, ,$@)
+os = $(word 1, $(temp))
+arch = $(word 2, $(temp))
+
+$(PLATFORMS): dist
+	GOOS=$(os) GOARCH=$(arch) go build -o 'dist/j2y-$(os)-$(arch)' ./j2y
+	GOOS=$(os) GOARCH=$(arch) go build -o 'dist/y2j-$(os)-$(arch)' ./y2j
+
+.PHONY: release 
+release: $(PLATFORMS)
 
 .PHONY: build 
-build: dist/j2y dist/y2j
+build:
+	go build -o dist/j2y ./j2y
+	go build -o dist/y2j ./y2j
