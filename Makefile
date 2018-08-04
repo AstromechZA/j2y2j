@@ -19,11 +19,11 @@ SHASUM_EXISTS := $(shell command -v shasum 2>/dev/null)
 .PHONY: release 
 release: $(PLATFORMS)
 ifdef SHASUM_EXISTS
-	shasum -a 256 dist/j2y-* > dist/SHASUMS
-	shasum -a 256 dist/y2j-* >> dist/SHASUMS
+	shasum -a 256 dist/j2y-* > dist/SHA256SUMS
+	shasum -a 256 dist/y2j-* >> dist/SHA256SUMS
 else 
-	sha256sum dist/j2y-* > dist/SHASUMS
-	sha256sum dist/y2j-* >> dist/SHASUMS
+	sha256sum dist/j2y-* > dist/SHASHA256SUMSSUMS
+	sha256sum dist/y2j-* >> dist/SHA256SUMS
 endif
 
 .PHONY: build 
