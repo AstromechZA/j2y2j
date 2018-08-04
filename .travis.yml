@@ -6,8 +6,7 @@ script:
 - echo '{}' | dist/j2y | dist/y2j
 - make release
 before_deploy:
-- cd dist && sha256sum j2y-* > SHA256SUMS
-- cd dist && sha256sum y2j-* >> SHA256SUMS
+- cd dist && sha256sum j2y-* > SHA256SUMS && sha256sum y2j-* >> SHA256SUMS
 deploy:
   provider: releases
   api_key:
