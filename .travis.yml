@@ -18,4 +18,4 @@ deploy:
     - dist/SHA256SUMS
   on:
     repo: AstromechZA/j2y2j
-    branch: master
+    tags: true
