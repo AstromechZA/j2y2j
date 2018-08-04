@@ -1,6 +1,6 @@
 language: go
 go:
-- 1.9
+- 1.10
 script:
 - make
 - echo '{}' | dist/j2y | dist/y2j
@@ -11,7 +11,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: co8MXCvoxgkqC+my/WgZxnnZMfXwWTXkyhu/V4g3Z5/SUyq/kMVfHJcwWK757epMfAHleyTKMOHbqNEfG9Vwt1XV5jE7sbZid0SN7jEYSjo7ujjncJ1HDMbTFcLDjW7n2k9xE9OgpMFjqbuqSf8zZXk6KKw7xOkMIPMhNhGOO6KAVQ7W/QNF4uUwK0GIF+m5A4t6Dt7AUy0rNxb0txm6Y32OiZBxm8ER1TOUyk0AO0cIlWR6POTTUwJ69qnIWlnHuK7r1Y2C+tGU+0uoW8NlRHyNbXSAi5l482qI0VZWFaD19JVWkBtbKbK0UlQG9Fy+iiEdRsVXugprqC7jjrvpM4oTSkooDkzdYcE5AVPnQfU5j8qmNk4zb88kQP8dCeA5p5PgjBAoGu99gyQznCfkdzflND2dSo9icLYz8D4v2JvF8a8islVN8nqr1j4O1gurR2xj4a+4G5UDkCJrzTse0P94SiXvQZ/zEcpP1LHLrInOyhJij02KKaLKHmwRcdpE0PCJVliNK9dlCJVW/YfYwxbuAHK4XjsrppeJ1RdOJRhxlmHNEv1IlQ26chSbui6vrnOg2DTssxEj2NAPVAoEXy9xBrx4zOHA51vswTO5DE+S/2TJkv0iebw3s8froHyMPf38bJBtHVQYTb+S2zKQOuFjxgHJZGoukWQrXFyqo0g=
+    secure: IvanXcfKZM9JTTcu/edWLYVLGVEkIw4Xo81p4DJ3jBlwF+dfFbbmB4mfVvrZfuI1/oOn9xZy39TMri80b+8QVTsfCto0CeIwWoQBeXYkpJBkcfo66m2iQ31H17QGJcpzD/ZHVm51nIwRZPUEmT66x5oZusZyrTm35w4xhbrXX221JlokBr/MT2Qz3HZTTlQ0acjJbVnmM/teXVPdkUk0huPbevfvGiQcpUSm7R9z7gZKvFPZZ/SjNc+mrs0ERIN2F9mMP2g3kZKScPBo5yUKfgm7HYesL9/NvM9w0lisdPoMBJKMgAfKzqpXcIox0s2EJW7XkcNoLNZy7Sqaz/99Xq+MV7kLZNUDl7myPnKvBrpVEmJi33zEslxunb2ez3hA1SLjjzueXay2+OW6PoWZ/Zc5XEIu3J/0bzw9b4m9hNqRTHbc1i8dEeVdEcmPSxv8j9LyoX3UCMlzUSnQHuxrDrDR4WK/1h2RW6+2DOifGVAhrH0pCWEuWjbl/gieot9a5ki/qwoPLoDe5CqEBtdBkGTtXbghI7X0wPq4RH/VsxWnakwyNI4G1MZDMV3M3mOR3XiB9BTtjX7u2C1SepAXPRsd+Yh4H7luUjBSC4hsWhmuiAHUkPm1xfKG1grpLLzBLeQNHNFc4zvuHGjP2MlCLRgu9usd8dLMY+mDP13153k=
   skip_cleanup: true
   file:
     - dist/j2y-linux-amd64
@@ -21,6 +21,4 @@ deploy:
     - dist/SHA256SUMS
   on:
     repo: AstromechZA/j2y2j
-  branches:
-    only:
-      - master
+    branch: master
